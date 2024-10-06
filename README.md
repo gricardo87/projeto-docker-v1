@@ -129,18 +129,6 @@ nginx:
     - frontend
     - guess
 ```
-
-nginx:
-  image: nginx:latest
-  restart: always
-  ports:
-    - "80:80"
-  volumes:
-    - ./nginx.conf:/etc/nginx/nginx.conf
-  depends_on:
-    - frontend
-    - guess
-    
 ### 1.5. Volume para Persistência do PostgreSQL:
 
 Foi criado um volume postgres-data para persistir os dados do banco de dados PostgreSQL e ser montado no bloco do container do PostgreSQL:
@@ -186,7 +174,7 @@ http {
 Para realizar atualizações backend Python, frontend ou Load Balancer Nginx, siga as instruções abaixo.
 
 ## 3.1. Balanceamento de Carga com NGINX:
-Para alterar rotas, portas ou outras configurações, edite o arquivo nginx.conf na raiz do repositório.
+Para alterar rotas, portas ou outras configurações, edite o arquivo nginx.conf na ***raiz do repositório***.
 
 Depois, execute:
 
@@ -196,7 +184,7 @@ docker-compose up
 ```
 
 ## 3.2. Atualize o Frontend:
-Modifique o Dockerfile localizado na pasta frontend da aplicação ou o arquivo docker-compose.yml, conforme necessário.
+Modifique o Dockerfile localizado na pasta ***frontend*** da aplicação ou o arquivo docker-compose.yml, conforme necessário.
 
 Depois, execute:
 
@@ -206,7 +194,7 @@ docker-compose up
 ```
 
 ## 3.3. Atualize o Backend:
-Altere as variáveis de ambiente no arquivo docker-compose.yml ou modifique o Dockerfile que está na raiz do repositório da aplicação conforme necessário.
+Altere as variáveis de ambiente no arquivo docker-compose.yml ou modifique o Dockerfile que está na ***raiz do repositório*** da aplicação conforme necessário.
 
 Depois, execute:
 
