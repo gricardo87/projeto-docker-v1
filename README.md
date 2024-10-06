@@ -22,6 +22,18 @@ Após clonar o repositório, navegue até a pasta correspondente:
   ```bash
   cd projeto-docker-v1
   ```
+Depois, execute:
+
+```bash
+docker-compose up
+```
+
+Você pode acessar a aplicação a partir de sua máquina utilizando o link do localhost na porta 80: http://localhost.
+
+Você devera vistualizar uma pagina como essa abaixo:
+
+<img src="print-ok.png"
+
 ---
 
 ## Estrutura do Repositório
