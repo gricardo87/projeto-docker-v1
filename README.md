@@ -77,7 +77,7 @@ frontend:
     - guess
 ```
 
-### 1.2. Backend (Serviço Guess)
+#### 1.2. Backend (Serviço Guess)
 
 O backend é representado pelo bloco `guess`, que contém um `Dockerfile` específico localizado na raiz do projeto. As variáveis de ambiente, que anteriormente estavam codificadas diretamente no código, foram movidas para o arquivo `docker-compose.yml`. 
 
@@ -120,7 +120,7 @@ EXPOSE 5000
 CMD ["sh", "./start-backend.sh"]
 ```
 
-### 1.3. Banco de Dados (PostgreSQL)
+#### 1.3. Banco de Dados (PostgreSQL)
 
 Foi criada uma entrada para o serviço PostgreSQL, passando as credenciais e o banco de dados via variáveis de ambiente. Além disso, foi mapeado um volume chamado "postgres-data" para persistir os dados, garantindo que o banco seja preservado em caso de reinicialização do container.
 
@@ -135,7 +135,7 @@ postgres:
   volumes:
     - postgres-data:/var/lib/postgresql/data
 ```
-### 1.4. Load Balancer (NGINX)
+#### 1.4. Load Balancer (NGINX)
 
 Um serviço NGINX foi configurado para atuar como balanceador de carga, distribuindo requisições tanto para o frontend quanto para o backend (guess). O arquivo de configuração nginx.conf, localizado na raiz do repositório, é mapeado dentro do container como arquivo de configuração do NGINX.
 
@@ -151,7 +151,7 @@ nginx:
     - frontend
     - guess
 ```
-### 1.5. Volume para Persistência do PostgreSQL:
+#### 1.5. Volume para Persistência do PostgreSQL:
 
 Foi criado um volume postgres-data para persistir os dados do banco de dados PostgreSQL e ser montado no bloco do container do PostgreSQL:
 
@@ -161,7 +161,7 @@ volumes:
 ```
 ---
 
-## 2. Balanceamento de Carga com NGINX:
+### 2. Balanceamento de Carga com NGINX:
 
 Foi criada uma configuração do NGINX que direciona a rota / para o frontend. As outras rotas (/create, /breaker, /guess) são direcionadas para o backend, foi utilizada expressão regular para filtrar as rotas.
 
@@ -192,10 +192,10 @@ http {
 ```
 ---
 
-# 3. Guia de Atualização: Docker Compose, Backend, Frontend e Load Balancer
+### 3. Guia de Atualização: Docker Compose, Backend, Frontend e Load Balancer
 Para realizar atualizações backend Python, frontend ou Load Balancer Nginx, siga as instruções abaixo.
 
-## 3.1. Balanceamento de Carga com NGINX:
+#### 3.1. Balanceamento de Carga com NGINX:
 Para alterar rotas, portas ou outras configurações, edite o arquivo nginx.conf na ***raiz do repositório***.<br>
 Para alterar a versão da imagem do nginx altere o arquivo docker-compose.yml.
 
@@ -206,7 +206,7 @@ docker-compose down
 docker-compose up
 ```
 
-## 3.2. Atualize o Frontend:
+#### 3.2. Atualize o Frontend:
 Modifique o Dockerfile localizado na pasta ***frontend*** da aplicação ou o arquivo docker-compose.yml, conforme necessário.
 
 Depois, execute:
@@ -226,7 +226,7 @@ docker-compose down
 docker-compose up
 ```
 
-## 3.3. Atualize o docker-compose.yml:
+#### 3.3. Atualize o docker-compose.yml:
 Faça as alterações necessárias (troca de portas, variáveis de ambiente, healthcheck, etc) no arquivo `docker-compose.yml` e execute os comandos abaixo para aplicar as mudanças:
 
 Depois, execute:
