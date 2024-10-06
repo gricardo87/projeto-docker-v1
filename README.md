@@ -59,7 +59,11 @@ frontend:
 
 O backend é representado pelo bloco `guess`, que contém um `Dockerfile` específico localizado na raiz do projeto. As variáveis de ambiente, que anteriormente estavam codificadas diretamente no código, foram movidas para o arquivo `docker-compose.yml`. 
 
-Adicionalmente, foi adicionado um **healthcheck** para garantir que o serviço do backend esteja pronto antes que o NGINX e o balanceamento de carga sejam ativados. Abaixo está a configuração do backend:
+Adicionalmente, foi adicionado um **healthcheck** para garantir que o serviço do backend esteja pronto antes que o NGINX e o balanceamento de carga sejam ativados. 
+
+Para isso foi necessário adicionar uma linha para instalar o curl dentro do Dockerfile para poder realizar **healthcheck**. 
+
+Abaixo está a configuração do backend no arquivo `docker-compose.yml`:
 
 ```yaml
 guess:
@@ -82,6 +86,18 @@ guess:
     retries: 3
     start_period: 20s
 ```
+Abaixo está a configuração do Dockerfile da raiz do projeto alterado com a instalação do curl na 3a linha:
+
+```yaml
+FROM python:3.8-slim
+WORKDIR /app
+RUN apt-get update && apt-get install curl -y
+COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 5000
+CMD ["sh", "./start-backend.sh"]
+```
+
 ### 1.3. Banco de Dados (PostgreSQL)
 
 Foi criada uma entrada para o serviço PostgreSQL, passando as credenciais e o banco de dados via variáveis de ambiente. Além disso, foi mapeado um volume chamado "postgres-data" para persistir os dados, garantindo que o banco seja preservado em caso de reinicialização do container.
