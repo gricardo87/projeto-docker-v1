@@ -216,7 +216,7 @@ docker-compose down
 docker-compose up
 ```
 
-## 3.3. Atualize o Backend:
+#### 3.3. Atualize o Backend:
 Altere as variáveis de ambiente no arquivo docker-compose.yml ou modifique o Dockerfile que está na ***raiz do repositório*** da aplicação conforme necessário.
 
 Depois, execute:
@@ -226,7 +226,7 @@ docker-compose down
 docker-compose up
 ```
 
-#### 3.3. Atualize o docker-compose.yml:
+#### 3.4. Atualize o docker-compose.yml:
 Faça as alterações necessárias (troca de portas, variáveis de ambiente, healthcheck, etc) no arquivo `docker-compose.yml` e execute os comandos abaixo para aplicar as mudanças:
 
 Depois, execute:
