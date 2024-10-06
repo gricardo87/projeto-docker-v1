@@ -47,6 +47,12 @@ A porta do host 80 deve estar disponível para garantir o funcionamento adequado
 - **Dockerfile do Frontend (React):** Localizado na pasta `frontend`. Nome: `frontend/Dockerfile`
 - **Configuração do NGINX:** Localizado na raiz do projeto. Nome: `nginx.conf`
 
+### Observação Técnica:
+ 
+Foi adicionado o parâmetro `restart: always` em todos os serviços no arquivo `docker-compose.yml`.
+
+Essa configuração garante que, em caso de falhas, o Docker tentará reiniciar automaticamente os contêineres, aumentando a resiliência da aplicação.
+
 ---
 
 ## Configuração e Estrutura
