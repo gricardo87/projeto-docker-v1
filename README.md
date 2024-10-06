@@ -196,7 +196,7 @@ http {
 Para realizar atualizações backend Python, frontend ou Load Balancer Nginx, siga as instruções abaixo.
 
 ## 3.1. Balanceamento de Carga com NGINX:
-Para alterar rotas, portas ou outras configurações, edite o arquivo nginx.conf na ***raiz do repositório***.
+Para alterar rotas, portas ou outras configurações, edite o arquivo nginx.conf na ***raiz do repositório***.<br>
 Para alterar a versão da imagem do nginx altere o arquivo docker-compose.yml.
 
 Depois, execute:
