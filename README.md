@@ -32,7 +32,7 @@ Você pode acessar a aplicação a partir de sua máquina utilizando o link do l
 
 Você devera vistualizar uma pagina como essa abaixo:
 
-<img src="print-ok.png"
+<img src="print-ok.png">
 
 ---
 
