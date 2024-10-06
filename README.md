@@ -34,6 +34,10 @@ Você devera vistualizar uma pagina como essa abaixo:
 
 <img src="print-ok.png">
 
+### Observação Técnica:
+ 
+A porta do host 80 deve estar disponível para garantir o funcionamento adequado dos serviços. Caso haja um servidor web (como Apache ou Nginx) em execução localmente, pode ocorrer um conflito de porta. Nesse caso, será necessário modificar o arquivo docker-compose.yml localizado na raiz do projeto, especificamente no bloco de configuração do Nginx, para mapear a porta do contêiner para uma porta alternativa no host.
+
 ---
 
 ## Estrutura do Repositório
