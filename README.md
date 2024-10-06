@@ -1,5 +1,29 @@
 # Documentação do Projeto
 
+## Pré-requisitos
+
+Para rodar este projeto, certifique-se de ter os seguintes itens instalados:
+
+- **Docker**: https://docs.docker.com/engine/install/
+- **Docker Compose**: https://docs.docker.com/compose/install/
+- **Git**: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+---
+
+## **Git**:
+O repositório já deve ter sido clonado para o seu ambiente. Caso não tenha feito isso, execute o seguinte comando:
+
+  ```bash
+  git clone https://github.com/gricardo87/projeto-docker-v1.git
+  ```
+  
+Após clonar o repositório, navegue até a pasta correspondente:
+
+  ```bash
+  cd projeto-docker-v1
+  ```
+---
+
 ## Estrutura do Repositório
 
 - **Arquivo Docker Compose:** Localizado na raiz do projeto. Nome: `docker-compose.yml`
@@ -109,6 +133,8 @@ Foi criado um volume postgres-data para persistir os dados do banco de dados Pos
 volumes:
   postgres-data:
 ```
+---
+
 ## 2. Balanceamento de Carga com NGINX:
 
 Foi criada uma configuração do NGINX que direciona a rota / para o frontend. As outras rotas (/create, /breaker, /guess) são direcionadas para o backend, foi utilizada expressão regular para filtrar as rotas.
@@ -138,7 +164,7 @@ http {
     }
 }
 ```
-
+---
 
 # 3. Guia de Atualização: Docker Compose, Backend, Frontend e Load Balancer
 Para realizar atualizações backend Python, frontend ou Load Balancer Nginx, siga as instruções abaixo.
